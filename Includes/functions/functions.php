@@ -4,9 +4,9 @@
 	{
 		global $pageTitle;
 		if(isset($pageTitle))
-			echo $pageTitle." RTC Pizza & Pasta | MMXXII";
+			echo $pageTitle." The RTC | Pizza & Pasta ";
 		else
-			echo "RTC Pizza & Pasta | MMXXII";
+			echo "The RTC | Pizza & Pasta ";
 	}
 
 	/*
