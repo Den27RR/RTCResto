@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2023 at 09:54 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Waktu pembuatan: 03 Bulan Mei 2024 pada 06.25
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `restaurant_website`
+-- Database: `resto`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clients`
+-- Struktur dari tabel `clients`
 --
 
 CREATE TABLE `clients` (
@@ -32,37 +32,33 @@ CREATE TABLE `clients` (
   `client_name` varchar(50) NOT NULL,
   `client_phone` varchar(50) NOT NULL,
   `client_email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `clients`
+-- Dumping data untuk tabel `clients`
 --
 
 INSERT INTO `clients` (`client_id`, `client_name`, `client_phone`, `client_email`) VALUES
-(9, 'Clinet 1', '02020202020', 'client1@gmail.com'),
-(10, 'Client 10', '0638383933', 'client10@gmail.com'),
-(11, 'Client 11', '06242556272', 'client11@yahoo.fr'),
-(13, 'Client 12', '030303030202', 'client1133@gmail.com'),
-(14, 'Client 12', '030303030', 'client14@gmail.com'),
-(16, 'Client 14', '0203203203', 'client14@gmail.com'),
-(17, 'Client 17', '0737373822', 'client17@gmail.com'),
-(18, 'Client 12', '02920320', 'client12@yahoo.fr'),
-(19, 'Test', '1034304300', 'test@gmail.com');
+(1, 'Gibral', '89021324', 'Gibralanugrah@gmail.com'),
+(2, 'Nazar', '89021324', 'nazar27rr@gmail.com'),
+(3, 'Nazar', '89021324', 'nazar27rr@gmail.com'),
+(4, 'Gibral', '89021324', 'Gibralanugrah@gmail.com'),
+(5, 'Restu', '123123123', 'restufbrsta@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `image_gallery`
+-- Struktur dari tabel `image_gallery`
 --
 
 CREATE TABLE `image_gallery` (
   `image_id` int(2) NOT NULL,
   `image_name` varchar(30) NOT NULL,
   `image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `image_gallery`
+-- Dumping data untuk tabel `image_gallery`
 --
 
 INSERT INTO `image_gallery` (`image_id`, `image_name`, `image`) VALUES
@@ -75,7 +71,7 @@ INSERT INTO `image_gallery` (`image_id`, `image_name`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `in_order`
+-- Struktur dari tabel `in_order`
 --
 
 CREATE TABLE `in_order` (
@@ -83,24 +79,31 @@ CREATE TABLE `in_order` (
   `order_id` int(5) NOT NULL,
   `menu_id` int(5) NOT NULL,
   `quantity` int(3) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `in_order`
+-- Dumping data untuk tabel `in_order`
 --
 
 INSERT INTO `in_order` (`id`, `order_id`, `menu_id`, `quantity`) VALUES
-(8, 10, 16, 1),
-(9, 11, 12, 1),
-(10, 11, 16, 1),
-(11, 12, 11, 1),
-(12, 12, 12, 1),
-(13, 12, 16, 1);
+(1, 1, 2, 1),
+(2, 1, 3, 1),
+(3, 1, 5, 1),
+(4, 1, 6, 1),
+(5, 1, 7, 1),
+(6, 1, 8, 1),
+(7, 1, 9, 1),
+(8, 1, 1, 1),
+(9, 1, 11, 1),
+(10, 1, 12, 1),
+(11, 1, 16, 1),
+(12, 2, 2, 1),
+(13, 2, 3, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menus`
+-- Struktur dari tabel `menus`
 --
 
 CREATE TABLE `menus` (
@@ -110,38 +113,38 @@ CREATE TABLE `menus` (
   `menu_price` decimal(6,2) NOT NULL,
   `menu_image` varchar(255) NOT NULL,
   `category_id` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `menus`
+-- Dumping data untuk tabel `menus`
 --
 
 INSERT INTO `menus` (`menu_id`, `menu_name`, `menu_description`, `menu_price`, `menu_image`, `category_id`) VALUES
-(1, 'Moroccan Couscous', 'Moroccan couscous is a traditional dish consisting of fluffy semolina grains steamed to perfection, accompanied by a rich and aromatic stew of tender meat, vegetables, &amp; fragrant spices.', 14.00, '88737_couscous_meat.jpg', 8),
-(2, 'Beef Hamburger', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 3.80, 'burger.jpeg', 1),
-(3, 'Ice Cream', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 7.50, 'summer-dessert-sweet-ice-cream.jpg', 2),
-(5, 'Coffee', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 10.00, 'coffee.jpeg', 3),
-(6, 'Ice Tea', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 3.20, '76643_ice_tea.jpg', 3),
-(7, 'Bucatini', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 20.00, 'macaroni.jpeg', 4),
-(8, 'Cannelloni', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 10.00, 'cooked_pasta.jpeg', 4),
-(9, 'Margherita', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 24.00, 'pizza.jpeg', 5),
-(11, 'Moroccan Tajine', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 20.00, '58146_Moroccan Chicken Tagine.jpeg', 8),
-(12, 'Moroccan Bissara', 'Bissara is a traditional Moroccan dish made from dried split fava beans (also known as broad beans) that are cooked and blended into a smooth and flavorful soup.', 10.00, '61959_Bissara.jpg', 8),
-(16, 'Couscous', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 20.00, '76635_57738_w1024h768c1cx256cy192.jpg', 8);
+(1, 'Moroccan Couscous', 'Moroccan couscous is a traditional dish consisting of fluffy semolina grains steamed to perfection, accompanied by a rich and aromatic stew of tender meat, vegetables, &amp; fragrant spices.', '14.00', '88737_couscous_meat.jpg', 8),
+(2, 'Beef Hamburger', 'Sink your teeth into a juicy beef patty nestled between soft buns, topped with fresh lettuce, ripe tomatoes, and tangy pickles, delivering a burst of flavor in every bite', '3.80', 'burger.jpeg', 1),
+(3, 'Ice Cream', 'Indulge your sweet tooth with our creamy, handcrafted ice cream, available in a variety of irresistible flavors, guaranteed to satisfy your cravings and cool you down on a hot day', '7.50', 'summer-dessert-sweet-ice-cream.jpg', 2),
+(5, 'Coffee', 'Start your day right with the rich aroma and bold flavor of our freshly brewed coffee, expertly roasted and meticulously prepared to awaken your senses and fuel your day', '5.00', 'coffee.jpeg', 3),
+(6, 'Ice Tea', 'Quench your thirst with our refreshing iced tea, brewed to perfection and infused with hints of citrus or fruity flavors, providing a revitalizing burst of coolness with every sip', '3.20', '76643_ice_tea.jpg', 3),
+(7, 'Bucatini', 'Delight in the simplicity of Italian cuisine with our Bucatini pasta, cooked al dente and tossed in a savory sauce', '20.00', 'macaroni.jpeg', 4),
+(8, 'Cannelloni', 'Indulge in layers of tender pasta stuffed with a delectable filling of seasoned meats or creamy ricotta cheese, baked to perfection and topped with luscious tomato sauce and melted cheese', '10.00', 'cooked_pasta.jpeg', 4),
+(9, 'Margherita', 'Experience the timeless perfection of Italian pizza with our Margherita, featuring a thin crust topped with vibrant tomato sauce and fragrant basil leaves for a burst of freshness', '24.00', 'pizza.jpeg', 5),
+(11, 'Moroccan Tajine', 'Delight in the rich and complex flavors of Morocco with our Tajine, a traditional slow-cooked stew brimming with succulent meats or vegetables', '20.00', '58146_Moroccan Chicken Tagine.jpeg', 8),
+(12, 'Moroccan Bissara', 'Bissara is a traditional Moroccan dish made from dried split fava beans (also known as broad beans) that are cooked and blended into a smooth and flavorful soup.', '10.00', '61959_Bissara.jpg', 8),
+(16, 'Couscous', 'ransport your taste buds to the vibrant streets of North Africa with our Couscous, a versatile and fluffy grain dish made from steamed semolina, paired with a vegetables, and tender meats', '20.00', '76635_57738_w1024h768c1cx256cy192.jpg', 8);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu_categories`
+-- Struktur dari tabel `menu_categories`
 --
 
 CREATE TABLE `menu_categories` (
   `category_id` int(3) NOT NULL,
   `category_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `menu_categories`
+-- Dumping data untuk tabel `menu_categories`
 --
 
 INSERT INTO `menu_categories` (`category_id`, `category_name`) VALUES
@@ -156,7 +159,7 @@ INSERT INTO `menu_categories` (`category_id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `placed_orders`
+-- Struktur dari tabel `placed_orders`
 --
 
 CREATE TABLE `placed_orders` (
@@ -167,24 +170,20 @@ CREATE TABLE `placed_orders` (
   `delivered` tinyint(1) NOT NULL DEFAULT 0,
   `canceled` tinyint(1) NOT NULL DEFAULT 0,
   `cancellation_reason` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `placed_orders`
+-- Dumping data untuk tabel `placed_orders`
 --
 
 INSERT INTO `placed_orders` (`order_id`, `order_time`, `client_id`, `delivery_address`, `delivered`, `canceled`, `cancellation_reason`) VALUES
-(7, '2020-06-22 12:01:00', 9, 'Bloc A Nr 80000 Hay ElAgadir', 0, 1, 'Sorry! I changed my mind!'),
-(8, '2020-06-23 06:07:00', 10, 'Chengdu, China', 0, 1, ''),
-(9, '2020-06-24 16:40:00', 11, 'Hay El Houda Agadir', 1, 0, NULL),
-(10, '2023-07-01 04:02:00', 16, 'Bloc A', 0, 0, NULL),
-(11, '2023-10-30 20:09:00', 18, 'Test testst asds', 0, 0, NULL),
-(12, '2023-10-30 21:46:00', 19, 'tests sd', 0, 0, NULL);
+(1, '2024-05-03 04:49:00', 1, 'Sekret HIMTI', 1, 0, NULL),
+(2, '2024-05-03 05:02:00', 3, 'Sekret HIMTI', 0, 1, 'Out of Stock');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservations`
+-- Struktur dari tabel `reservations`
 --
 
 CREATE TABLE `reservations` (
@@ -197,39 +196,67 @@ CREATE TABLE `reservations` (
   `liberated` tinyint(1) NOT NULL DEFAULT 0,
   `canceled` tinyint(1) NOT NULL DEFAULT 0,
   `cancellation_reason` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `reservations`
+-- Dumping data untuk tabel `reservations`
 --
 
 INSERT INTO `reservations` (`reservation_id`, `date_created`, `client_id`, `selected_time`, `nbr_guests`, `table_id`, `liberated`, `canceled`, `cancellation_reason`) VALUES
-(1, '2020-07-18 09:07:00', 13, '2020-07-30 09:07:00', 0, 1, 0, 0, NULL),
-(2, '2020-07-18 09:11:00', 14, '2020-07-29 13:00:00', 4, 1, 0, 0, NULL),
-(3, '2023-07-01 04:01:00', 15, '2023-07-02 05:00:00', 2, 1, 0, 0, NULL),
-(4, '2023-10-30 20:03:00', 17, '2023-11-08 20:03:00', 1, 1, 0, 0, NULL);
+(1, '2024-05-03 04:54:00', 2, '2024-05-10 20:00:00', 2, 1, 0, 0, NULL),
+(2, '2024-05-03 05:05:00', 4, '2024-05-10 20:00:00', 1, 2, 0, 0, NULL),
+(3, '2024-05-03 06:12:00', 5, '2024-05-30 10:00:00', 4, 1, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tables`
+-- Struktur dari tabel `tables`
 --
 
 CREATE TABLE `tables` (
   `table_id` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tables`
+-- Dumping data untuk tabel `tables`
 --
 
 INSERT INTO `tables` (`table_id`) VALUES
-(1);
+(1),
+(2),
+(3),
+(4),
+(5),
+(6),
+(7),
+(8),
+(9),
+(10),
+(11),
+(12),
+(13),
+(14),
+(15),
+(16),
+(17),
+(18),
+(19),
+(20),
+(21),
+(22),
+(23),
+(24),
+(25),
+(26),
+(27),
+(28),
+(29),
+(30);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -238,56 +265,56 @@ CREATE TABLE `users` (
   `email` varchar(30) NOT NULL,
   `full_name` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `full_name`, `password`) VALUES
-(1, 'admin_user', 'user_admin@gmail.com', 'User Admin', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441');
+(1, 'admin', 'user_admin@gmail.com', 'User Admin', 'd033e22ae348aeb5660fc2140aec35850c4da997');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `website_settings`
+-- Struktur dari tabel `website_settings`
 --
 
 CREATE TABLE `website_settings` (
   `option_id` int(5) NOT NULL,
   `option_name` varchar(255) NOT NULL,
   `option_value` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `website_settings`
+-- Dumping data untuk tabel `website_settings`
 --
 
 INSERT INTO `website_settings` (`option_id`, `option_name`, `option_value`) VALUES
-(1, 'restaurant_name', 'VINCENT PIZZA'),
-(2, 'restaurant_email', 'vincent.pizza@gmail.com'),
-(3, 'admin_email', 'admin_email@gmail.com'),
-(4, 'restaurant_phonenumber', '088866777555'),
-(5, 'restaurant_address', '1580  Boone Street, Corpus Christi, TX, 78476 - USA');
+(1, 'restaurant_name', 'RTC Pizza & Pasta'),
+(2, 'restaurant_email', 'contact@rtcpizzeria.com'),
+(3, 'admin_email', 'contact.admin@rtcpizzeria.com'),
+(4, 'restaurant_phonenumber', '+6288291547071'),
+(5, 'restaurant_address', '21 Menjangan Street, East Ciputat, South Tangerang, 15412 - IND');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `clients`
+-- Indeks untuk tabel `clients`
 --
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`client_id`);
 
 --
--- Indexes for table `image_gallery`
+-- Indeks untuk tabel `image_gallery`
 --
 ALTER TABLE `image_gallery`
   ADD PRIMARY KEY (`image_id`);
 
 --
--- Indexes for table `in_order`
+-- Indeks untuk tabel `in_order`
 --
 ALTER TABLE `in_order`
   ADD PRIMARY KEY (`id`),
@@ -295,39 +322,39 @@ ALTER TABLE `in_order`
   ADD KEY `fk_order` (`order_id`);
 
 --
--- Indexes for table `menus`
+-- Indeks untuk tabel `menus`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`menu_id`),
   ADD KEY `FK_menu_category_id` (`category_id`);
 
 --
--- Indexes for table `menu_categories`
+-- Indeks untuk tabel `menu_categories`
 --
 ALTER TABLE `menu_categories`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Indexes for table `placed_orders`
+-- Indeks untuk tabel `placed_orders`
 --
 ALTER TABLE `placed_orders`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `fk_client` (`client_id`);
 
 --
--- Indexes for table `reservations`
+-- Indeks untuk tabel `reservations`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`reservation_id`);
 
 --
--- Indexes for table `tables`
+-- Indeks untuk tabel `tables`
 --
 ALTER TABLE `tables`
   ADD PRIMARY KEY (`table_id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
@@ -335,94 +362,94 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `website_settings`
+-- Indeks untuk tabel `website_settings`
 --
 ALTER TABLE `website_settings`
   ADD PRIMARY KEY (`option_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `clients`
+-- AUTO_INCREMENT untuk tabel `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `client_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `client_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `image_gallery`
+-- AUTO_INCREMENT untuk tabel `image_gallery`
 --
 ALTER TABLE `image_gallery`
   MODIFY `image_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `in_order`
+-- AUTO_INCREMENT untuk tabel `in_order`
 --
 ALTER TABLE `in_order`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `menus`
+-- AUTO_INCREMENT untuk tabel `menus`
 --
 ALTER TABLE `menus`
   MODIFY `menu_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `menu_categories`
+-- AUTO_INCREMENT untuk tabel `menu_categories`
 --
 ALTER TABLE `menu_categories`
   MODIFY `category_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `placed_orders`
+-- AUTO_INCREMENT untuk tabel `placed_orders`
 --
 ALTER TABLE `placed_orders`
-  MODIFY `order_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `order_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `reservations`
+-- AUTO_INCREMENT untuk tabel `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `reservation_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tables`
+-- AUTO_INCREMENT untuk tabel `tables`
 --
 ALTER TABLE `tables`
-  MODIFY `table_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `table_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `website_settings`
+-- AUTO_INCREMENT untuk tabel `website_settings`
 --
 ALTER TABLE `website_settings`
   MODIFY `option_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `in_order`
+-- Ketidakleluasaan untuk tabel `in_order`
 --
 ALTER TABLE `in_order`
   ADD CONSTRAINT `fk_menu` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`menu_id`),
   ADD CONSTRAINT `fk_order` FOREIGN KEY (`order_id`) REFERENCES `placed_orders` (`order_id`);
 
 --
--- Constraints for table `menus`
+-- Ketidakleluasaan untuk tabel `menus`
 --
 ALTER TABLE `menus`
   ADD CONSTRAINT `FK_menu_category_id` FOREIGN KEY (`category_id`) REFERENCES `menu_categories` (`category_id`);
 
 --
--- Constraints for table `placed_orders`
+-- Ketidakleluasaan untuk tabel `placed_orders`
 --
 ALTER TABLE `placed_orders`
   ADD CONSTRAINT `fk_client` FOREIGN KEY (`client_id`) REFERENCES `clients` (`client_id`);
